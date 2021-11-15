@@ -2,12 +2,16 @@ import React from "react";
 import Header from "./components/Header";
 import "./styles/App.css"
 
-function App() {
-  return (
-    <div>
-      <Header/>
-    </div>
-  );
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <Header/>
+      </div>
+    );
+  }
 }
 
 export default App;
