@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
@@ -9,15 +9,18 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
+
 
 const Profile = () => {
     const [values, setValues] = React.useState({
-        amount: '',
         password: '',
-        weight: '',
-        weightRange: '',
         showPassword: false,
-      });
+    });
+    const [cartId, setCartId ] = useState('')
+    const [dataCart, setDataCart ] = useState('')
 
       const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -34,6 +37,15 @@ const Profile = () => {
         event.preventDefault();
       };
 
+      const theme = createTheme({
+        palette: {
+          neutral: {
+            main: '#FDBF5A',
+            contrastText: '#fff',
+          },
+        },
+      });
+
     return(
         <div className="cart">
             <div className="form">
@@ -43,31 +55,40 @@ const Profile = () => {
                     <TextField 
                         sx={{ marginTop: '50px'}}
                         fullWidth
-                        id="standard-basic" 
+                        id="name" 
                         label="Имя владельца"
                         variant="standard"
                         color="grey"
+                        
                     />
                     <TextField 
+                        type='number'
                         sx={{ marginTop: '30px'}}
                         fullWidth
-                        id="standard-basic" 
+                        id="cart_id" 
                         label="Номер карты"
                         variant="standard"
                         color="grey"
+                        value={cartId}
+                        onChange={event => setCartId(event.target.value)}
                     />
-                    <TextField 
+                    <TextField
+                        type='number'
                         sx={{ marginTop: '30px', width: '160px'}}
-                        id="standard-basic" 
+                        id="data" 
                         label="MM/YY"
+                        value={dataCart}
+                        onChange={event => setDataCart(event.target.value)}
                         variant="standard"
                         color="grey"
                     />
                         <FormControl sx={{width: '160px', marginTop: '30px', marginLeft: '35px' }} variant="standard">
-                            <InputLabel htmlFor="standard-adornment-password">CVV</InputLabel>
+                            <InputLabel htmlFor="standard-adornment-password" color="grey">CVV</InputLabel>
                                 <Input
+                                    color="grey"
+                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                                     id="standard-adornment-password"
-                                    type={values.showPassword ? 'text' : 'password'}
+                                    type={values.showPassword ? 'number' : 'password'}
                                     value={values.password}
                                     onChange={handleChange('password')}
                                     endAdornment={
@@ -85,12 +106,28 @@ const Profile = () => {
                         </FormControl>          
                 </div>
                 <div className="btn_save">
-                    <Button 
-                        sx={{ width: '353px', backgroundColor:'#FDBF5A',color: 'black', height: '61px', borderRadius: '70px'}}
-                    >Contained</Button>
+                    <ThemeProvider theme={theme}>
+                        <Button
+                            sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
+                            color='neutral'
+                            variant="contained"
+                        >Contained</Button>
+                    </ThemeProvider>
+                </div>
+                <div className="cart-info">
+                    <img src="/images/logo_2.png" alt="" id="logo_2"/>
+                    <div className="cart_id">
+                        <h1>{cartId ? cartId : '0000 0000 0000 0000'}</h1>
+                    </div>
+                    <div className="data_cart">
+                        <h1>{dataCart ? dataCart : '00/00'}</h1>
+                    </div>
+                    <img src="/images/Vector.png" alt="" id="vector"/>
+                    <div className="cart_icon">
+                        <FontAwesomeIcon icon={faCreditCard} color="grey" size="2x"/>
+                    </div>
                 </div>
             </div>
-            
         </div>
     )
 }
