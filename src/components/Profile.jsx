@@ -32,6 +32,10 @@ export const Profile = () => {
         event.preventDefault();
       };
 
+      const updateId = () => (event) => {
+          setCartId(event.target.value)
+      }
+
       const theme = createTheme({
         palette: {
           neutral: {
@@ -40,6 +44,7 @@ export const Profile = () => {
           },
         },
       });
+
 
     return(
         <div className="cart">
@@ -65,7 +70,7 @@ export const Profile = () => {
                         variant="standard"
                         color="grey"
                         value={cartId}
-                        onChange={event => setCartId(event.target.value)}
+                        onChange={updateId()}
                     />
                     <TextField
                         type='number'
