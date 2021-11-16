@@ -1,20 +1,15 @@
 import React, { useState } from "react";
-import { TextField } from "@mui/material";
-import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
+import { TextField, InputLabel, Input, InputAdornment, IconButton, FormControl, Button } from "@mui/material";
 import "../styles/Profile.css"
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import FormControl from '@mui/material/FormControl';
-import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
+import { withAuth } from "../AuthContext";
 
 
-const Profile = () => {
+export const Profile = () => {
     const [values, setValues] = React.useState({
         password: '',
         showPassword: false,
@@ -111,7 +106,7 @@ const Profile = () => {
                             sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
                             color='neutral'
                             variant="contained"
-                        >Contained</Button>
+                        >Сохранить</Button>
                     </ThemeProvider>
                 </div>
                 <div className="cart-info">
@@ -132,4 +127,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
+export const ProfileWithAuth = withAuth(Profile)

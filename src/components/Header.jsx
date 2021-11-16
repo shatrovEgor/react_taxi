@@ -1,21 +1,26 @@
 import React from "react";
 import "../styles/Header.css"
-import Login from "./Login";
+import { LoginWithAuth } from "./Login";
 import Map from "./Map";
-import Profile from "./Profile";
+import {ProfileWithAuth} from "./Profile";
+import { withAuth } from "../AuthContext";
 
 
 const PAGES = {
-    login: <Login/>,
-    map: <Map/>,
-    profile: <Profile/>,
+    login: (props) => <LoginWithAuth {...props}/>,
+    map: (props) => <Map {...props}/>,
+    profile: (props) => <ProfileWithAuth {...props}/>,
 }
 
 class Header extends React.Component {
     state = {currentPage: "login"};
 
     navigateTo = (page) => {
-      this.setState({ currentPage: page})
+        if(this.props.isLoggedIn){
+            this.setState({ currentPage: page })
+        }else{
+            this.setState({ currentPage: 'login'})
+        }
     }; 
 
     render() {
@@ -37,7 +42,7 @@ class Header extends React.Component {
                 </div>
                 <main>
                     <section>
-                        {PAGES[this.state.currentPage]}
+                        {PAGES[this.state.currentPage]({navigate: this.navigateTo})}
                     </section>
                 </main>
             </div>
@@ -45,4 +50,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export const HeaderWithAuth = withAuth(Header)
