@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/LoginPage.css";
 import Map from "../components/Map"
 import Login from "../components/Login";

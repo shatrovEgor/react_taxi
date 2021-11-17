@@ -1,20 +1,30 @@
 import React from "react";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router';
 
-class Header extends React.Component {
-    render() {
+const Header = () => {
+    let navigate = useNavigate();
+    function hadleClick() {
+        navigate('/map')
+    }
+    function hadleClickProfile() {
+        navigate('/profile')
+    }
+    function hadleClickLogin() {
+        navigate('/')
+    }
+
         return (
                 <div className="header">
                     <img src="/images/logo.png" alt="" className="img"/>
                     <div className="btn-bar">
-                        <button className="btn"><Link to="/map">Карта</Link></button>
-                        <button className="btn" ><Link to="/profile">Профиль</Link></button>
-                        <button className="btn" ><Link to="/">Выйти</Link></button>
+                        <button className="btn" onClick={hadleClick}>Карта</button>
+                        <button className="btn" onClick={hadleClickProfile}>Профиль</button>
+                        <button className="btn" onClick={hadleClickLogin}>Выйти</button>
                     </div>
                 </div>
         )
-    }
 }
 
 export default Header;
