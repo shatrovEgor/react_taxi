@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
+import "./Modal.css"
 import { TextField } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
@@ -9,12 +10,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom'
-import Modal from "../components/ModalWindow/Modal"
 
-const Login = () => {
-    const [modalActive, setModalActive] = useState(false)
-
+const Modal = ({active, setActive}) => {
     const [values, setValues] = React.useState({
         password: '',
         showPassword: false,
@@ -42,12 +39,11 @@ const Login = () => {
         },
       })
 
-  
-
-    return(
-        <div>
-          <h1>Sing in</h1>
-            <div className="cont-form">
+    return (
+        <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
+            <div className="modal__content" onClick={e => e.stopPropagation()}>
+                <div className="modal__container">
+                <h1>Регистрация</h1>
                 <TextField 
                     sx={{ marginTop: '50px'}}
                     fullWidth
@@ -56,8 +52,16 @@ const Login = () => {
                     variant="standard"
                     color="grey"  
                 />
+                <TextField 
+                    sx={{ marginTop: '50px'}}
+                    fullWidth
+                    id="name" 
+                    label="Как вас зовут?"
+                    variant="standard"
+                    color="grey"  
+                />
                 <FormControl sx={{width: '100%', marginTop: '50px' }} variant="standard">
-                            <InputLabel htmlFor="standard-adornment-password" color="grey">Пароль</InputLabel>
+                            <InputLabel htmlFor="standard-adornment-password" color="grey">Придумайте пароль</InputLabel>
                                 <Input
                                     color="grey"
                                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -78,24 +82,21 @@ const Login = () => {
                                                 }
                                 />
                         </FormControl>
-                        <h2 id='password'>Забыли пароль?</h2>
                         <ThemeProvider theme={theme}>
                         <Button
-                            component={Link}
-                            to="/map"
-                            sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '100px'}}
+                            sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '90px'}}
                             color='neutral'
                             variant="contained"
-                        >go</Button>
+                        >Зарегистрироваться</Button>
                     </ThemeProvider>
                     <div className="new-user">
-                        <p>Новый пользователь?</p>
-                        <button className="btn-user" onClick={() => setModalActive(true)}><p id="user">Регистрация</p></button>
-                        <Modal active={modalActive} setActive={setModalActive}/>
+                        <p>Уже зарегистрированы?</p>
+                        <button className="btn-user" onClick={() => setActive(false)}><p id="user">Войти</p></button>
+                    </div>
                     </div>
             </div>
         </div>
     )
 }
 
-export default Login;
+export default Modal;

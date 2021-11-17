@@ -75,3 +75,29 @@
     width: 355px;
     margin: 0 auto;
 }
+
+.new-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-user {
+    border: none;
+    background-color: transparent;
+
+}
+
+#user {
+    color: #FDBF5A;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#password {
+    cursor: pointer;
+}
+
+#password:hover {
+    color: #FDBF5A;
+}

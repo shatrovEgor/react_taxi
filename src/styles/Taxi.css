@@ -1,0 +1,26 @@
+.container-taxi-1 {
+    position: absolute;
+    background-color: white;
+    bottom: 0;
+    z-index: 1;
+    width: 486px;
+    height: 323px;
+    box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.car-container {
+    display: flex;
+    width: 486px;
+    justify-content: center;
+    margin:0;
+}
+
+.car {
+    margin: 20px 10px;
+    width: 118px;
+    height: 167px;
+    background-color: white;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
