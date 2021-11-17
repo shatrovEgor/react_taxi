@@ -34,7 +34,7 @@ const Login = () => {
         palette: {
           neutral: {
             main: '#FDBF5A',
-            contrastText: '#fff',
+            contrastText: '#000000',
           },
         },
       })
@@ -43,7 +43,7 @@ const Login = () => {
 
     return(
         <div>
-          <h1>Войти</h1>
+          <h1>Sing in</h1>
             <div className="cont-form">
                 <TextField 
                     sx={{ marginTop: '50px'}}
@@ -53,7 +53,7 @@ const Login = () => {
                     variant="standard"
                     color="grey"  
                 />
-                <FormControl sx={{width: '100%', marginTop: '30px' }} variant="standard">
+                <FormControl sx={{width: '100%', marginTop: '50px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password" color="grey">Пароль</InputLabel>
                                 <Input
                                     color="grey"
@@ -75,15 +75,17 @@ const Login = () => {
                                                 }
                                 />
                         </FormControl>
+                        <h2>Забыли пароль?</h2>
                         <ThemeProvider theme={theme}>
                         <Button
                             component={Link}
                             to="/map"
-                            sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '40px'}}
+                            sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '100px'}}
                             color='neutral'
                             variant="contained"
-                        >Войти</Button>
+                        >go</Button>
                     </ThemeProvider>
+                <p>Новый пользователь? Регистрация</p>
             </div>
         </div>
     )

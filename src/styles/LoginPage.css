@@ -49,6 +49,28 @@
     margin-top: 56px;
 }
 
+.log-in-form p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+.log-in-form h2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
 .cont-form { 
     width: 355px;
     margin: 0 auto;
