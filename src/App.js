@@ -1,17 +1,9 @@
-import React from "react";
-import Header from "./components/Header";
-import "./styles/App.css"
+import LoginPage from "./pages/LoginPage"
 
-
-class App extends React.Component {
-
-  render() {
-    return (
-      <div>
-        <Header/>
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div>
+     <LoginPage/>
+    </div>
+  );
 }
-
-export default App;
