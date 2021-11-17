@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.left-side {
+    position: relative;
+    width: 485px;
+    height: 100vh;
+    background-color: #1c1a19;
+}
+
+.img_3 {
+    position: absolute;
+    bottom: 398px;
+    left: 146px;
+}
+
+.rigth-side {
+    position: relative;
+    width: calc(100vw - 485px);
+    height: 100%;
+}
+
+.log-in-form{
+    position: absolute;
+    width: 580px;
+    height: 541px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    justify-content: center;       
+}
+
+.log-in-form h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 56px;
+}
+
+.cont-form { 
+    width: 355px;
+    margin: 0 auto;
+}

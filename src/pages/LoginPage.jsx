@@ -1,14 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/LoginPage.css";
+import Map from "../components/Map"
+import Login from "../components/Login";
+
 
 const LoginPage = () => {
     return (
-        <div>
-            <Link to="/map">map</Link>
+        <div className="container">
             <div className="left-side">
-
+            <img src="/images/logo_3.png" alt="" className="img_3"/>
             </div>
+            <div className="rigth-side">
+            <Map></Map>
+            <div className="log-in-form">
+                <Login/>
+            </div>
+            </div>
+            
         </div>
     )
 }
