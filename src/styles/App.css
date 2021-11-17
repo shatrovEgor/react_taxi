@@ -9,3 +9,27 @@
     height: 100vh;
     overflow: hidden;
 }
+
+.container-prof {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.header-prof {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.profile-prof {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+
