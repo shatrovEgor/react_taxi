@@ -24,7 +24,7 @@ const Taxi = () => {
                             sx={{ width: '394px', height: '61px', borderRadius: '70px', marginLeft: '45px', marginTop: '20px'}}
                             color='neutral'
                             variant="contained"
-                        >go</Button>
+                        >заказать</Button>
                     </ThemeProvider>
         </div>
     )

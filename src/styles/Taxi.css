@@ -23,4 +23,56 @@
     background-color: white;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    text-align: center;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.car.active {
+    opacity: 1;
+}
+
+#car_1 {
+    margin-top: 12px;
+}
+
+#car_2 {
+    margin-top: 6px;
+}
+
+#car_3 {
+    margin-top: 18px;
+}
+
+#cars {
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+#cars_2 {
+    color: #828282;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    margin-left: 12px;
+    margin-top: 5px;
+}
+
+#cars_3 {
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    margin-left: 11px;
 }

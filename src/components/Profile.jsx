@@ -41,7 +41,7 @@ const Profile = () => {
         palette: {
           neutral: {
             main: '#FDBF5A',
-            contrastText: '#fff',
+            contrastText: '#00000',
           },
         },
       });
@@ -111,7 +111,7 @@ const Profile = () => {
                             sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
                             color='neutral'
                             variant="contained"
-                        >Contained</Button>
+                        >сохранить</Button>
                     </ThemeProvider>
                 </div>
                 <div className="cart-info">
