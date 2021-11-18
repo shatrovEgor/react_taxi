@@ -13,7 +13,6 @@ const Car = () => {
             setCarActive2(false)
             setCarActive3(false)
         }
-        console.log(123);
     }
 
     function pick2() {
@@ -23,7 +22,6 @@ const Car = () => {
             setCarActive(false)
             setCarActive3(false)
         }
-        console.log(123);
     }
 
     function pick3() {

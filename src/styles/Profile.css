@@ -6,6 +6,11 @@
     
 }
 
+.unactive {
+    opacity: 0;
+    pointer-events: none;
+}
+
 .form {
     text-align: center;
     width: 888px;
@@ -15,6 +20,7 @@
     background-color: white;
     margin-top: 124px;
     position: relative;
+    z-index: 2;
 }
 
 .form h1 {
@@ -94,3 +100,4 @@
     bottom: 15px;
     right: 20px;
 }
+

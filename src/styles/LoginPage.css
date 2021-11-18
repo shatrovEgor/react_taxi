@@ -101,3 +101,8 @@
 #password:hover {
     color: #FDBF5A;
 }
+
+.date-picker {
+    position: absolute;
+    bottom: 120px;
+}

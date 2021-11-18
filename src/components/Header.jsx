@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Header.css";
 import { useNavigate } from 'react-router';
+import { connect } from "react-redux";
+import {logOut} from '../actions'
 
 const Header = () => {
     let navigate = useNavigate();
@@ -26,4 +28,7 @@ const Header = () => {
         )
 }
 
-export default Header;
+export default connect(
+    null,
+    { logOut }
+)(Header);

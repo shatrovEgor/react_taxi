@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom'
 import Modal from "../components/ModalWindow/Modal"
+import {connect} from 'react-redux'
+import {logIn} from '../actions'
 
 const Login = () => {
     const [modalActive, setModalActive] = useState(false)
@@ -19,6 +21,13 @@ const Login = () => {
         password: '',
         showPassword: false,
     });
+
+
+      const authenticate = (event) => {
+          event.preventDefault();
+          const { email, password } = event.target;
+          this.props.logIn(email.value, password.value) 
+      }
 
       const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -41,7 +50,6 @@ const Login = () => {
           },
         },
       })
-
   
 
     return(
@@ -98,4 +106,7 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default connect(
+    (state) => ({isLoggedIn: state.auth.isLoggedIn}),
+    {logIn}
+)(Login);

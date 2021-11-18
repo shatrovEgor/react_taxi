@@ -11,8 +11,10 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
-
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import DatePicker from '@mui/lab/DatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DateAdapter from '@mui/lab/AdapterDateFns';
 
 const Profile = () => {
     const [values, setValues] = React.useState({
@@ -21,6 +23,9 @@ const Profile = () => {
     });
     const [cartId, setCartId ] = useState('')
     const [dataCart, setDataCart ] = useState('')
+    const [date, setDate] = useState('')
+    const [active, setActive] = useState('true')
+
 
       const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
@@ -37,6 +42,28 @@ const Profile = () => {
         event.preventDefault();
       };
 
+      const handleIdChange = (event) => {
+          let a = event.target.value
+          if(a.length === 4 || a.length === 9 || a.length === 14) {
+              a = a + ' '
+          };
+          if(a.length === 19){
+              
+          }
+        setCartId(a)
+      };
+
+      const handleChangeDataCard = (event) => {
+          let a = event.target.value
+          if(a.length === 2){
+              a = a + '/'
+          }
+          setDataCart(a)
+      }
+      const handleChangeDate = (newValue) => {
+          setDate(newValue)
+      }
+
       const theme = createTheme({
         palette: {
           neutral: {
@@ -47,7 +74,7 @@ const Profile = () => {
       });
 
     return(
-        <div className="cart">
+        <div className={active ? 'cart' : 'unactive'}>
             <div className="form">
                 <h1>Профиль</h1>
                 <p>Введите платежные данные</p>
@@ -62,7 +89,7 @@ const Profile = () => {
                         
                     />
                     <TextField 
-                        type='number'
+                        type='text'
                         sx={{ marginTop: '30px'}}
                         fullWidth
                         id="cart_id" 
@@ -70,18 +97,33 @@ const Profile = () => {
                         variant="standard"
                         color="grey"
                         value={cartId}
-                        onChange={event => setCartId(event.target.value)}
+                        onChange={handleIdChange}
                     />
                     <TextField
-                        type='number'
+                        type='text'
+                        inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                         sx={{ marginTop: '30px', width: '160px'}}
                         id="data" 
                         label="MM/YY"
                         value={dataCart}
-                        onChange={event => setDataCart(event.target.value)}
+                        onChange={handleChangeDataCard}
                         variant="standard"
                         color="grey"
                     />
+                    <div className="date-picker">
+                        <LocalizationProvider dateAdapter={DateAdapter}>
+                            <DatePicker
+                                views={['year', 'month']}
+                                sx={{marginTop: '20px'}}
+                                label="MM/YY"
+                                inputFormat="MM/yy"
+                                value={date}
+                                onChange={handleChangeDate}
+                                renderInput={(params) => <TextField {...params} helperText={null} />}
+                            />
+                        </LocalizationProvider>
+                    </div>
+                    
                         <FormControl sx={{width: '160px', marginTop: '30px', marginLeft: '35px' }} variant="standard">
                             <InputLabel htmlFor="standard-adornment-password" color="grey">CVV</InputLabel>
                                 <Input
@@ -111,6 +153,7 @@ const Profile = () => {
                             sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
                             color='neutral'
                             variant="contained"
+                            onClick={() => setActive(false)}
                         >сохранить</Button>
                     </ThemeProvider>
                 </div>
