@@ -18,6 +18,7 @@ import {logIn, logOut } from '../actions'
 const Login = () => {
     const [modalActive, setModalActive] = useState(false)
     const [email , setEmail] = useState('')
+    let navigate = useNavigate();
 
     const [values, setValues] = React.useState({
         password: '',
@@ -48,10 +49,10 @@ const Login = () => {
       
       const authenticate = (event) => {
           event.preventDefault();
-          console.log( 'Email:', email, 'Password: ', values.password); 
       }
 
-      let navigate = useNavigate();
+      
+
       function hadleClick() {
         if(email === '123' && values.password === '123') {
           navigate('/map')

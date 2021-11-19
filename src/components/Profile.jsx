@@ -15,6 +15,8 @@ import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import DatePicker from '@mui/lab/DatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateAdapter from '@mui/lab/AdapterDateFns';
+import store from "../store";
+import { setNameProfile, setCardIdProfile, setPasswordProfile, setDateProfile, returnName } from '../actions'
 
 const Profile = () => {
     const [values, setValues] = React.useState({
@@ -25,6 +27,7 @@ const Profile = () => {
     const [dataCart, setDataCart ] = useState('')
     const [date, setDate] = useState('')
     const [active, setActive] = useState('true')
+    const [name , setName] = useState('')
 
 
       const handleChange = (prop) => (event) => {
@@ -73,16 +76,31 @@ const Profile = () => {
         },
       });
 
+      const authenticate = (event) => {
+        event.preventDefault();
+        setActive(false)
+        store.dispatch(setNameProfile(name))
+        store.dispatch(setCardIdProfile(cartId))
+        store.dispatch(setPasswordProfile(values.password))
+        store.dispatch(setDateProfile(dataCart))
+        setName(store.getState().name)
+        console.log(store.getState());
+        console.log(name);
+      }
+
     return(
         <div className={active ? 'cart' : 'unactive'}>
             <div className="form">
                 <h1>Профиль</h1>
                 <p>Введите платежные данные</p>
                 <div className="login_data">
+                    <form onSubmit={authenticate}>
                     <TextField 
                         sx={{ marginTop: '50px'}}
                         fullWidth
-                        id="name" 
+                        id="name"
+                        value={name} 
+                        onInput={ e=>setName(e.target.value)}
                         label="Имя владельца"
                         variant="standard"
                         color="grey"
@@ -98,6 +116,7 @@ const Profile = () => {
                         color="grey"
                         value={cartId}
                         onChange={handleIdChange}
+                        onInput={ e=>setCartId(e.target.value)}
                     />
                     <TextField
                         type='text'
@@ -107,6 +126,7 @@ const Profile = () => {
                         label="MM/YY"
                         value={dataCart}
                         onChange={handleChangeDataCard}
+                        onInput={ e=>setDataCart(e.target.value)}
                         variant="standard"
                         color="grey"
                     />
@@ -145,15 +165,17 @@ const Profile = () => {
                                         </InputAdornment>
                                                 }
                                 />
-                        </FormControl>          
+                        </FormControl>
+                        </form>          
                 </div>
                 <div className="btn_save">
                     <ThemeProvider theme={theme}>
                         <Button
+                            type="submit"
                             sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
                             color='neutral'
                             variant="contained"
-                            onClick={() => setActive(false)}
+                            onClick={authenticate}
                         >сохранить</Button>
                     </ThemeProvider>
                 </div>
