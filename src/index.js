@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import MapPage from "./pages/MapPage";
 import ProfilePage from "./pages/ProfilePage";
-import {store} from './store'
+import store from './store'
 
 const rootElement = document.getElementById("root");
 render(
