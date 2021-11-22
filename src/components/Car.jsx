@@ -31,7 +31,6 @@ const Car = () => {
             setCarActive(false)
             setCarActive2(false)
         }
-        console.log(123);
     }
 
 

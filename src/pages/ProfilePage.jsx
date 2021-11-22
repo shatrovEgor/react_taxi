@@ -6,6 +6,11 @@ import ModalProfile from '../components/ModalWindow/ModalProfile'
 
 
 const ProfilePage = () => {
+
+    const onSubmit = (formData) => {
+        console.log(formData);
+      }
+      
     return (
         <div className="container-prof">
             <Map/>
@@ -14,7 +19,7 @@ const ProfilePage = () => {
             </div>
             <ModalProfile/>
             <div className="profile-prof">
-                <Profile/>
+                <Profile onSubmit={onSubmit}/>
             </div>     
         </div>
     )

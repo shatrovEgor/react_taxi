@@ -40,6 +40,24 @@
     margin-left: 44px;
 }
 
+.login_data_2 {
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+    padding-right: 15px;
+}
+
+.login_data_2_2 {
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+}
+
+.login_id {
+    height: 90px;
+    width: 100%;
+}
+
 .btn_save {
     position: absolute;
     bottom: 67px;
@@ -100,4 +118,22 @@
     bottom: 15px;
     right: 20px;
 }
+
+.css-1d1r5q-MuiFormHelperText-root.Mui-error {
+    color: #d32f2f;
+    font-size: 12px;
+}
+
+.btn_close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.btn_close:hover{
+    color: #FDBF5A;
+}
+
+
 

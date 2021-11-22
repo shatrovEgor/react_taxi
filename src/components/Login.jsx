@@ -11,8 +11,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import  {useNavigate}  from 'react-router-dom'
 import Modal from "../components/ModalWindow/Modal"
-import store from "../store";
-import {logIn, logOut } from '../actions'
+
 
 
 const Login = () => {
