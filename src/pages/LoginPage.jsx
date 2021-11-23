@@ -3,6 +3,18 @@ import "../styles/LoginPage.css";
 import Map from "../components/Map"
 import Login from "../components/Login";
 
+const axios = require('axios').default
+axios.post('https://loft-taxi.glitch.me/auth', {
+    email: "email@example.com",
+    password: "password"
+})
+.then(function (responce) {
+    console.log(responce.data);
+})
+
+const subAuth = (dataAuth) => {
+    console.log(dataAuth);
+}
 
 const LoginPage = () => {
 
@@ -15,7 +27,7 @@ const LoginPage = () => {
             <div className="rigth-side">
                 <Map/>
                 <div className="log-in-form">
-                    <Login/>
+                    <Login onSubmit={subAuth}/>
                 </div>
             </div>
         </div>

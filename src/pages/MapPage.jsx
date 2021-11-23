@@ -2,6 +2,7 @@ import React from "react";
 import Map from "../components/Map"
 import Header from "../components/Header"
 import Taxi from "../components/Taxi"
+import RouteTaxi from "../components/RouteTaxi"
 
 const MapPage = () => {
     return(
@@ -9,6 +10,7 @@ const MapPage = () => {
             <Header/>
             <Map></Map>
             <div className="container-taxi">
+                <RouteTaxi/>
                 <Taxi></Taxi>
             </div>
         </div>

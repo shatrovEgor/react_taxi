@@ -6,6 +6,7 @@ export const PROFILE_NAME = 'PROFILE_NAME';
 export const PROFILE_CARD_ID = 'PROFILE_CARD_ID';
 export const PROFILE_PASSWORD = 'PROFILE_PASSWORD';
 export const PROFILE_DATE = 'PROFILE_DATE';
+export const ROUTE_TAXI = 'ROUTE_TAXI'
 
 export const logIn = () => ({type: LOG_IN})
 export const logOut = () => ({type: LOG_OUT})
@@ -27,3 +28,8 @@ export const setDateProfile = (name) => ({
     type: PROFILE_DATE,
     payload: name
 });
+
+export const setRouteTaxi = (route) => ({
+    type: ROUTE_TAXI,
+    payload: route,
+})

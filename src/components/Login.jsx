@@ -20,7 +20,6 @@ const Login = (props) => {
     let navigate = useNavigate();
 
     const [values, setValues] = React.useState({
-        password: '',
         showPassword: false,
     });
 
@@ -46,13 +45,13 @@ const Login = (props) => {
         },
       })
 
-      function hadleClick() {
-        if(values.password === '123') {
-          navigate('/map')
-        } else {
-          console.log('net');
-        }
-      }
+      // function hadleClick() {
+      //   if(values.password === '123') {
+      //     navigate('/map')
+      //   } else {
+      //     console.log('net');
+      //   }
+      // }
 
     return(
         <div>
@@ -71,7 +70,6 @@ const Login = (props) => {
                             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                             id="standard-adornment-password"
                             type={values.showPassword ? 'text' : 'password'}
-                            value={values.password}
                             onChange={handleChange('password')}
                             endAdornment={
                                 <InputAdornment position="end">
@@ -91,7 +89,6 @@ const Login = (props) => {
                     <Button
                       disabled={invalid || pristine || submitting}
                       type="submit"
-                      onClick={hadleClick}
                       sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '80px'}}
                       color='neutral'
                       variant="contained"
