@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { TextField } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -11,12 +10,13 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import  {useNavigate}  from 'react-router-dom'
 import Modal from "../components/ModalWindow/Modal"
+import { reduxForm , Field } from "redux-form";
+import {renderTextField, validate } from "../components/forForm/validations"
 
+const Login = (props) => {
+  const { handleSubmit, pristine, submitting, invalid } = props 
 
-
-const Login = () => {
     const [modalActive, setModalActive] = useState(false)
-    const [email , setEmail] = useState('')
     let navigate = useNavigate();
 
     const [values, setValues] = React.useState({
@@ -45,15 +45,9 @@ const Login = () => {
           },
         },
       })
-      
-      const authenticate = (event) => {
-          event.preventDefault();
-      }
-
-      
 
       function hadleClick() {
-        if(email === '123' && values.password === '123') {
+        if(values.password === '123') {
           navigate('/map')
         } else {
           console.log('net');
@@ -64,18 +58,13 @@ const Login = () => {
         <div>
           <h1>Sing in</h1>
             <div className="cont-form">
-              <form onSubmit={authenticate}>
-                <TextField 
-                    sx={{ marginTop: '50px'}}
-                    fullWidth
-                    id="name"
-                    value={email}
-                    onInput={ e=>setEmail(e.target.value)}
-                    label="Email"
-                    variant="standard"
-                    color="grey"  
-                />
-                <FormControl sx={{width: '100%', marginTop: '50px' }} variant="standard">
+              <form onSubmit={handleSubmit}>
+                    <Field
+                      name="email"
+                      component={renderTextField}
+                      label="Email"
+                    />
+                <FormControl sx={{width: '100%', marginTop: '30px' }} variant="standard">
                     <InputLabel htmlFor="standard-adornment-password" color="grey">Пароль</InputLabel>
                         <Input
                             color="grey"
@@ -100,9 +89,10 @@ const Login = () => {
                     <h2 id='password'>Забыли пароль?</h2>
                   <ThemeProvider theme={theme}>
                     <Button
+                      disabled={invalid || pristine || submitting}
                       type="submit"
                       onClick={hadleClick}
-                      sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '100px'}}
+                      sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '80px'}}
                       color='neutral'
                       variant="contained"
                     >go</Button>
@@ -118,4 +108,7 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default reduxForm({
+  form: 'login',
+  validate,
+})(Login);

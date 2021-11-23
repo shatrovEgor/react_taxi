@@ -7,14 +7,21 @@ import { faCreditCard, faTimes } from '@fortawesome/free-solid-svg-icons';
 import store from "../store";
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate, maxValue, minValue, dateValuee, validName, dateTest, valueCVV } from "../components/forForm/validations"
+import  {useNavigate}  from 'react-router-dom'
 
 const Profile = (props) => {
  
     const [active, setActive] = useState('true')
 
       const handleChangeClick = () => {
+        navigate('/map')
+      }
+
+      const handleChangeClick2 = (event) => {
         setActive(false)
       }
+
+      let navigate = useNavigate();
 
       const theme = createTheme({
         palette: {
@@ -25,7 +32,9 @@ const Profile = (props) => {
         },
       });
 
-      const { handleSubmit, pristine, submitting } = props 
+      const { handleSubmit, pristine, submitting, invalid } = props 
+
+      
 
     return(
         <div className={active ? 'cart' : 'unactive'}>
@@ -72,7 +81,8 @@ const Profile = (props) => {
                 <div className="btn_save">
                     <ThemeProvider theme={theme}>
                         <Button
-                            disabled={submitting || pristine}
+                            onClick={handleChangeClick2}
+                            disabled={invalid || submitting || pristine}
                             type="submit"
                             sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
                             color='neutral'

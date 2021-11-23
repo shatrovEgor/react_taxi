@@ -106,3 +106,17 @@
     position: absolute;
     bottom: 120px;
 }
+
+.cont-form {
+    margin-top: 20px;
+}
+
+.cont-form p {
+    text-align: left;
+    margin-top: 5px;
+}
+
+.css-1lh4mi6-MuiFormControl-root-MuiTextField-root {
+    height: 80px;
+}
+

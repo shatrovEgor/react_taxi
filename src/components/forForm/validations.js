@@ -8,12 +8,16 @@ export const validate = values => {
       'cardId',
       'cardDate',
       'CVV',
+      'email',
     ]
     requiredFields.forEach(field => {
       if (!values[field]) {
         errors[field] = 'Не заполнено'
       }
     })
+    if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      errors.email = 'Некорректный формат Email'
+    }
     
     return errors
   }
