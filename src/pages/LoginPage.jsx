@@ -17,7 +17,7 @@ const LoginPage = () => {
     .then(function (responce) {
         console.log(responce.data)
         if(responce.data.success === true) {
-            // store.dispatch(setLogIn())
+            store.dispatch(setLogIn())
             navigate('/map')
         }
     })

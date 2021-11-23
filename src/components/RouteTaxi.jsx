@@ -16,7 +16,7 @@ const axios = require('axios').default
         })
         const mapStateToProps = state => {
             return {
-                routeTax: state.route
+                routeTax: state.route.adress
             }
         }
 
@@ -31,8 +31,8 @@ const axios = require('axios').default
         
 const RouteTaxi = ({routeTax}) => {
 
-    const [firstRoute, setFirstRoute] = useState(routeTax[0]);
-    const [secondRoute, setSecondRoute] = useState(routeTax[1])
+    const [firstRoute, setFirstRoute] = useState();
+    const [secondRoute, setSecondRoute] = useState()
 
     const handleChange = (event) => {
         setFirstRoute(event.target.value);

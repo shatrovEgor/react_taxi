@@ -6,7 +6,7 @@ import store from '../store'
 export default function route (state = [] , action) {
     switch (action.type) {
         case ROUTE_TAXI:
-            return [...action.payload]
+            return {adress: action.payload}
         default:
             return state
     }

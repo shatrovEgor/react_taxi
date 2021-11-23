@@ -3,6 +3,7 @@ import "../styles/Header.css";
 import { useNavigate } from 'react-router';
 import { connect } from "react-redux";
 import {setLogOut} from '../actions'
+import store from "../store";
 
 const Header = () => {
     let navigate = useNavigate();
@@ -13,6 +14,7 @@ const Header = () => {
         navigate('/profile')
     }
     function hadleClickLogin() {
+        store.dispatch(setLogOut())
         navigate('/')
     }
 
