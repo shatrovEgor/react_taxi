@@ -1,14 +1,6 @@
 import React, {useState} from "react";
-import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import  {useNavigate}  from 'react-router-dom'
 import Modal from "../components/ModalWindow/Modal"
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate } from "../components/forForm/validations"
@@ -17,25 +9,7 @@ const Login = (props) => {
   const { handleSubmit, pristine, submitting, invalid } = props 
 
     const [modalActive, setModalActive] = useState(false)
-    let navigate = useNavigate();
 
-    const [values, setValues] = React.useState({
-        showPassword: false,
-    });
-
-      const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-      };
-    
-      const handleClickShowPassword = () => {
-        setValues({
-          ...values,
-          showPassword: !values.showPassword,
-        });
-      };
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
       const theme = createTheme({
         palette: {
           neutral: {
@@ -63,33 +37,18 @@ const Login = (props) => {
                       component={renderTextField}
                       label="Email"
                     />
-                <FormControl sx={{width: '100%', marginTop: '30px' }} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-password" color="grey">Пароль</InputLabel>
-                        <Input
-                            color="grey"
-                            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                            id="standard-adornment-password"
-                            type={values.showPassword ? 'text' : 'password'}
-                            onChange={handleChange('password')}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                    >
-                                    {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                </InputAdornment>
-                                        }
-                          />
-                </FormControl>
-                    <h2 id='password'>Забыли пароль?</h2>
+                    <Field
+                      name="password"
+                      component={renderTextField}
+                      label="Пароль"
+                    />
+                
+                    <h2 id='password-2'>Забыли пароль?</h2>
                   <ThemeProvider theme={theme}>
                     <Button
                       disabled={invalid || pristine || submitting}
                       type="submit"
-                      sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '80px'}}
+                      sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '60px'}}
                       color='neutral'
                       variant="contained"
                     >go</Button>

@@ -1,4 +1,5 @@
 import {ROUTE_TAXI} from '../actions'
+import store from '../store'
 
 
 

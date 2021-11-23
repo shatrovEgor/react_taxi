@@ -2,21 +2,26 @@ import React from "react";
 import "../styles/LoginPage.css";
 import Map from "../components/Map"
 import Login from "../components/Login";
-
-const axios = require('axios').default
-axios.post('https://loft-taxi.glitch.me/auth', {
-    email: "email@example.com",
-    password: "password"
-})
-.then(function (responce) {
-    console.log(responce.data);
-})
-
-const subAuth = (dataAuth) => {
-    console.log(dataAuth);
-}
+import  {useNavigate}  from 'react-router-dom'
+import store from "../store";
+import {setLogIn} from '../actions'
 
 const LoginPage = () => {
+    let navigate = useNavigate();
+
+    const axios = require('axios').default
+
+    const subAuth = (dataAuth) => {
+        console.log(dataAuth);
+        axios.post('https://loft-taxi.glitch.me/auth', {...dataAuth})
+    .then(function (responce) {
+        console.log(responce.data)
+        if(responce.data.success === true) {
+            // store.dispatch(setLogIn())
+            navigate('/map')
+        }
+    })
+    }
 
 
     return (

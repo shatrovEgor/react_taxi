@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Header.css";
 import { useNavigate } from 'react-router';
 import { connect } from "react-redux";
-import {logOut} from '../actions'
+import {setLogOut} from '../actions'
 
 const Header = () => {
     let navigate = useNavigate();
@@ -30,5 +30,5 @@ const Header = () => {
 
 export default connect(
     null,
-    { logOut }
+    { setLogOut }
 )(Header);

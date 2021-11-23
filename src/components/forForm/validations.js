@@ -9,6 +9,7 @@ export const validate = values => {
       'cardDate',
       'CVV',
       'email',
+      'password',
     ]
     requiredFields.forEach(field => {
       if (!values[field]) {

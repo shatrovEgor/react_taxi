@@ -31,8 +31,8 @@ const axios = require('axios').default
         
 const RouteTaxi = ({routeTax}) => {
 
-    const [firstRoute, setFirstRoute] = React.useState(routeTax);
-    const [secondRoute, setSecondRoute] = useState(routeTax)
+    const [firstRoute, setFirstRoute] = useState(routeTax[0]);
+    const [secondRoute, setSecondRoute] = useState(routeTax[1])
 
     const handleChange = (event) => {
         setFirstRoute(event.target.value);
