@@ -8,59 +8,52 @@ import {renderTextField, validate } from "../components/forForm/validations"
 const Login = (props) => {
   const { handleSubmit, pristine, submitting, invalid } = props 
 
-    const [modalActive, setModalActive] = useState(false)
+  const [modalActive, setModalActive] = useState(false)
 
-      const theme = createTheme({
-        palette: {
-          neutral: {
-            main: '#FDBF5A',
-            contrastText: '#000000',
-          },
-        },
-      })
+  const theme = createTheme({
+    palette: {
+      neutral: {
+        main: '#FDBF5A',
+        contrastText: '#000000',
+      },
+    },
+  })
 
-      // function hadleClick() {
-      //   if(values.password === '123') {
-      //     navigate('/map')
-      //   } else {
-      //     console.log('net');
-      //   }
-      // }
-
-    return(
-        <div>
-          <h1>Sing in</h1>
-            <div className="cont-form">
-              <form onSubmit={handleSubmit}>
-                    <Field
-                      name="email"
-                      component={renderTextField}
-                      label="Email"
-                    />
-                    <Field
-                      name="password"
-                      component={renderTextField}
-                      label="Пароль"
-                    />
-                
-                    <h2 id='password-2'>Забыли пароль?</h2>
-                  <ThemeProvider theme={theme}>
-                    <Button
-                      disabled={invalid || pristine || submitting}
-                      type="submit"
-                      sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '60px'}}
-                      color='neutral'
-                      variant="contained"
-                    >go</Button>
-                  </ThemeProvider>
-                  </form>
-                  <div className="new-user">
-                      <p>Новый пользователь?</p>
-                      <button className="btn-user" onClick={() => setModalActive(true)}><p id="user">Регистрация</p></button>
-                      <Modal active={modalActive} setActive={setModalActive}/>
-                  </div>
-            </div>
-        </div>
+  return(
+      <div>
+      <h1
+      data-testid="main-text">Sing in</h1>
+        <div className="cont-form">
+          <form onSubmit={handleSubmit}>
+                <Field
+                  name="email"
+                  component={renderTextField}
+                  label="Email"
+                />
+                <Field
+                  name="password"
+                  component={renderTextField}
+                  label="Пароль"
+                />
+            
+                <h2 id='password-2'>Забыли пароль?</h2>
+              <ThemeProvider theme={theme}>
+                <Button
+                  disabled={invalid || pristine || submitting}
+                  type="submit"
+                  sx={{ width: '100%', height: '61px', borderRadius: '70px', marginTop: '60px'}}
+                  color='neutral'
+                  variant="contained"
+                >go</Button>
+              </ThemeProvider>
+              </form>
+              <div className="new-user">
+                  <p>Новый пользователь?</p>
+                  <button className="btn-user" onClick={() => setModalActive(true)}><p id="user">Регистрация</p></button>
+                  <Modal active={modalActive} setActive={setModalActive}/>
+              </div>
+          </div>
+      </div>
     )
 }
 

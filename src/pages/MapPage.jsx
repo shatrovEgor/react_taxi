@@ -8,20 +8,20 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router';
 
-const mapStateToProps = state => {
-    return {
-        indicate: state.dataCard.indicateCard
+    const mapStateToProps = state => {
+        return {
+            indicate: state.dataCard.indicateCard
+        }
     }
-}
-const theme = createTheme({
-    palette: {
-      neutral: {
-        main: '#FDBF5A',
-        contrastText: '#00000',
-      },
-    },
-  });
 
+    const theme = createTheme({
+        palette: {
+            neutral: {
+                main: '#FDBF5A',
+                contrastText: '#00000',
+            },
+        },
+    });
 
 const MapPage = ({indicate}) => {
     let navigate = useNavigate();

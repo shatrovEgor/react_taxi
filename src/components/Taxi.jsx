@@ -16,18 +16,19 @@ const Taxi = () => {
       })
 
 
-    return (
-        <div className="container-taxi-1">
-                <Car></Car>
-            <ThemeProvider theme={theme}>
-                        <Button
-                            sx={{ width: '394px', height: '61px', borderRadius: '70px', marginLeft: '45px', marginTop: '20px'}}
-                            color='neutral'
-                            variant="contained"
-                        >заказать</Button>
-                    </ThemeProvider>
-        </div>
-    )
+  return (
+    <div className="container-taxi-1">
+        <Car></Car>
+        <ThemeProvider theme={theme}>
+          <Button
+              sx={{ width: '394px', height: '61px', borderRadius: '70px', marginLeft: '45px', marginTop: '20px'}}
+              color='neutral'
+              variant="contained"
+              data-testid="btn"
+          >заказать</Button>
+        </ThemeProvider>
+    </div>
+  )
 }
 
 export default Taxi;

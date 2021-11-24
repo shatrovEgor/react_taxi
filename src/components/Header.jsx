@@ -18,16 +18,16 @@ const Header = () => {
         navigate('/')
     }
 
-        return (
-                <div className="header">
-                    <img src="/images/logo.png" alt="" className="img"/>
-                    <div className="btn-bar">
-                        <button className="btn" onClick={hadleClick}>Карта</button>
-                        <button className="btn" onClick={hadleClickProfile}>Профиль</button>
-                        <button className="btn" onClick={hadleClickLogin}>Выйти</button>
-                    </div>
-                </div>
-        )
+    return (
+        <div className="header">
+            <img src="/images/logo.png" alt="" className="img"/>
+            <div className="btn-bar">
+                <button className="btn" onClick={hadleClick}>Карта</button>
+                <button className="btn" onClick={hadleClickProfile}>Профиль</button>
+                <button className="btn" onClick={hadleClickLogin}>Выйти</button>
+            </div>
+        </div>
+    )
 }
 
 export default connect(

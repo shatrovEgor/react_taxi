@@ -9,40 +9,35 @@ import {renderTextField, validate, maxValue, minValue, dateValuee, validName, da
 import  {useNavigate}  from 'react-router-dom'
 
 const Profile = (props) => {
- 
+    const { handleSubmit, pristine, submitting, invalid } = props 
     const [active, setActive] = useState('true')
+    let navigate = useNavigate();
 
-      const handleChangeClick = () => {
-        navigate('/map')
-      }
+    const handleChangeClick = () => {
+    navigate('/map')
+    }
 
-      const handleChangeClick2 = (event) => {
-        setActive(false)
-      }
+    const handleChangeClick2 = (event) => {
+    setActive(false)
+    }
 
-      let navigate = useNavigate();
-
-      const theme = createTheme({
-        palette: {
-          neutral: {
-            main: '#FDBF5A',
-            contrastText: '#00000',
-          },
+    const theme = createTheme({
+    palette: {
+        neutral: {
+        main: '#FDBF5A',
+        contrastText: '#00000',
         },
-      });
-
-      const { handleSubmit, pristine, submitting, invalid } = props 
-
-      
+    },
+    });
 
     return(
         <div className={active ? 'cart' : 'unactive'}>
             <div className="form">
-            <FontAwesomeIcon icon={faTimes} color="grey" size="2x" className="btn_close" onClick={handleChangeClick}/>
+                <FontAwesomeIcon icon={faTimes} color="grey" size="2x" className="btn_close" onClick={handleChangeClick}/>
                 <h1>Профиль</h1>
                 <p>Введите платежные данные</p>
                 <form onSubmit={handleSubmit}>
-                <div className="login_data">
+                    <div className="login_data">
                         <div className="login_id">
                             <Field
                                 name="firstName"
@@ -51,44 +46,44 @@ const Profile = (props) => {
                                 validate={validName}
                             />
                         </div>
-                    <div className="login_id">
-                        <Field
-                            name="cardId"
-                            component={renderTextField}
-                            label="Номер карты"
-                            validate={[maxValue,minValue]}
-                        />
+                        <div className="login_id">
+                            <Field
+                                name="cardId"
+                                component={renderTextField}
+                                label="Номер карты"
+                                validate={[maxValue,minValue]}
+                            />
+                        </div>
+                        <div className="login_data_2">
+                            <Field
+                                name="cardDate"
+                                component={renderTextField}
+                                validate={[dateValuee, dateTest]}
+                                label="MM/YY"
+                            />
+                        </div>
+                        <div className="login_data_2_2">
+                            <Field
+                                name="CVV"
+                                component={renderTextField}
+                                label="CVV"
+                                type="number"
+                                validate={valueCVV}
+                                />
+                        </div>
                     </div>
-                    <div className="login_data_2">
-                        <Field
-                            name="cardDate"
-                            component={renderTextField}
-                            validate={[dateValuee, dateTest]}
-                            label="MM/YY"
-                        />
+                    <div className="btn_save">
+                        <ThemeProvider theme={theme}>
+                            <Button
+                                onClick={handleChangeClick2}
+                                disabled={invalid || submitting || pristine}
+                                type="submit"
+                                sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
+                                color='neutral'
+                                variant="contained"
+                            >сохранить</Button>
+                        </ThemeProvider>
                     </div>
-                    <div className="login_data_2_2">
-                        <Field
-                            name="CVV"
-                            component={renderTextField}
-                            label="CVV"
-                            type="number"
-                            validate={valueCVV}
-                         />
-                    </div>
-                </div>
-                <div className="btn_save">
-                    <ThemeProvider theme={theme}>
-                        <Button
-                            onClick={handleChangeClick2}
-                            disabled={invalid || submitting || pristine}
-                            type="submit"
-                            sx={{ width: '353px', height: '61px', borderRadius: '70px'}}
-                            color='neutral'
-                            variant="contained"
-                        >сохранить</Button>
-                    </ThemeProvider>
-                </div>
                 </form>
                 <div className="cart-info">
                     <img src="/images/logo_2.png" alt="" id="logo_2"/>
@@ -102,7 +97,7 @@ const Profile = (props) => {
                     <div className="cart_icon">
                         <FontAwesomeIcon icon={faCreditCard} color="grey" size="2x"/>
                     </div>
-            </div>
+                </div>
             </div>  
         </div>
     )

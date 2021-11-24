@@ -5,7 +5,6 @@ import route from './reducers/TaxiRoute'
 import auth from './reducers/Auth';
 import dataCard from './reducers/DataCard';
 
-
 const reducers = combineReducers({
     auth,
     route,

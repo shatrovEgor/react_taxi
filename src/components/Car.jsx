@@ -33,7 +33,6 @@ const Car = () => {
         }
     }
 
-
     return(
         <div className="car-container">
             <div className={carActive ? 'car active' : 'car'} onClick={() => pick()}>
