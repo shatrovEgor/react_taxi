@@ -15,9 +15,9 @@ const axios = require('axios').default
             store.dispatch(setRouteTaxi(responce.data.addresses))
         })
         const mapStateToProps = state => {
-            return {
-                routeTax: state.route.adress
-            }
+                return {
+                    routeTax: state.route.adress
+                }
         }
 
         const theme = createTheme({
@@ -30,72 +30,103 @@ const axios = require('axios').default
           });
         
 const RouteTaxi = ({routeTax}) => {
-
-    const [firstRoute, setFirstRoute] = useState();
-    const [secondRoute, setSecondRoute] = useState()
-
+    const[firstRoute, setFirstRoute] = useState('')
+    const[secondRoute, setSecondRoute] =  useState('')
     const handleChange = (event) => {
         setFirstRoute(event.target.value);
       };
-
-    const handleChange2 = (event) => {
+      const handleChange2 = (event) => {
         setSecondRoute(event.target.value);
-    };
+      };
 
-    return(
-        <div>
-            <ThemeProvider theme={theme}>
-            <div className="route-bar">
-                
-                <Box sx={{ margin: '20px', marginTop: '20px' }}>
-                <FormControl fullWidth>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={firstRoute}
-                        onChange={handleChange}
-                        variant='standard'
-                        color='neutral'
-                    >
-                        {routeTax.map((name) => (
-                        <MenuItem
-                            key={name}
-                            value={name}
-                            >
-                            {name}
-                        </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                </Box>
-                
-            </div>
-            <div className="route-bar">
-                <Box sx={{ margin: '20px', marginTop: '20px' }}>
-                <FormControl fullWidth>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select-2"
-                        value={secondRoute}
-                        onChange={handleChange2}
-                        variant='standard'
-                        color='neutral'
-                    >
-                        {routeTax.map((name) => (
-                        <MenuItem
-                            key={name}
-                            value={name}
-                            >
-                            {name}
-                        </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-                </Box>
-            </div>
-            </ThemeProvider>
-    </div>
-    )
+
+    if(routeTax) {
+        return(
+            <div>
+                <ThemeProvider theme={theme}>
+                <div className="route-bar">
+                    
+                    <Box sx={{ margin: '20px', marginTop: '20px' }}>
+                    <FormControl fullWidth>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={firstRoute}
+                            variant='standard'
+                            color='neutral'
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={10}>{routeTax[0]}</MenuItem>
+                            <MenuItem value={20}>{routeTax[1]}</MenuItem>
+                            <MenuItem value={30}>{routeTax[2]}</MenuItem>
+                            <MenuItem value={40}>{routeTax[3]}</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </Box>
+                    
+                </div>
+                <div className="route-bar">
+                    <Box sx={{ margin: '20px', marginTop: '20px' }}>
+                    <FormControl fullWidth>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select-2"
+                            value={secondRoute}
+                            onChange={handleChange2}
+                            variant='standard'
+                            color='neutral'
+                        >
+                            <MenuItem value={10}>{routeTax[0]}</MenuItem>
+                            <MenuItem value={20}>{routeTax[1]}</MenuItem>
+                            <MenuItem value={30}>{routeTax[2]}</MenuItem>
+                            <MenuItem value={40}>{routeTax[3]}</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </Box>
+                </div>
+                </ThemeProvider>
+        </div>
+        )
+    } else {
+        return(
+            <div>
+                <ThemeProvider theme={theme}>
+                <div className="route-bar">
+                    
+                    <Box sx={{ margin: '20px', marginTop: '20px' }}>
+                    <FormControl fullWidth>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            variant='standard'
+                            color='neutral'
+                        >
+                            <MenuItem>1</MenuItem>
+                            <MenuItem>2</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </Box>
+                    
+                </div>
+                <div className="route-bar">
+                    <Box sx={{ margin: '20px', marginTop: '20px' }}>
+                    <FormControl fullWidth>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select-2"
+                            variant='standard'
+                            color='neutral'
+                        >
+                        <MenuItem>1</MenuItem>
+                        <MenuItem>2</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </Box>
+                </div>
+                </ThemeProvider>
+        </div>
+        )
+    }
 }
 
 export default connect(mapStateToProps)(RouteTaxi);

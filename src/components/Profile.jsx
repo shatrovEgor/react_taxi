@@ -94,7 +94,7 @@ const Profile = (props) => {
                 <div className="cart-info">
                     <img src="/images/logo_2.png" alt="" id="logo_2"/>
                     <div className="cart_id">
-                        <h1>{store.getState().cardId ? store.getState().cardId :'0000 0000 0000 0000'}</h1>
+                        <h1>{'0000 0000 0000 0000'}</h1>
                     </div>
                     <div className="data_cart">
                         <h1>{'00/00'}</h1>
