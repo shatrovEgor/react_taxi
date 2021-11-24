@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faTimes } from '@fortawesome/free-solid-svg-icons';
-import store from "../store";
 import { reduxForm , Field } from "redux-form";
 import {renderTextField, validate, maxValue, minValue, dateValuee, validName, dateTest, valueCVV } from "../components/forForm/validations"
 import  {useNavigate}  from 'react-router-dom'
