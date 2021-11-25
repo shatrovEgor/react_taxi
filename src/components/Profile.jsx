@@ -44,6 +44,7 @@ const Profile = (props) => {
                                 component={renderTextField}
                                 label="Имя владельца"
                                 validate={validName}
+                                data-testid="profile-name"
                             />
                         </div>
                         <div className="login_id">
@@ -52,6 +53,7 @@ const Profile = (props) => {
                                 component={renderTextField}
                                 label="Номер карты"
                                 validate={[maxValue,minValue]}
+                                data-testid="profile-cardId"
                             />
                         </div>
                         <div className="login_data_2">
@@ -60,6 +62,7 @@ const Profile = (props) => {
                                 component={renderTextField}
                                 validate={[dateValuee, dateTest]}
                                 label="MM/YY"
+                                data-testid="profile-date"
                             />
                         </div>
                         <div className="login_data_2_2">
@@ -69,6 +72,7 @@ const Profile = (props) => {
                                 label="CVV"
                                 type="number"
                                 validate={valueCVV}
+                                data-testid="profile-cvv"
                                 />
                         </div>
                     </div>

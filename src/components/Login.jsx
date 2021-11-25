@@ -29,11 +29,13 @@ const Login = (props) => {
                   name="email"
                   component={renderTextField}
                   label="Email"
+                  data-testid="email-first"
                 />
                 <Field
                   name="password"
                   component={renderTextField}
                   label="Пароль"
+                  data-testid="password-first"
                 />
             
                 <h2 id='password-2'>Забыли пароль?</h2>
@@ -54,7 +56,7 @@ const Login = (props) => {
               </div>
           </div>
       </div>
-    )
+  )
 }
 
 export default reduxForm({

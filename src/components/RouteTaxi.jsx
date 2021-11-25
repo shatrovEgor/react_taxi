@@ -55,6 +55,7 @@ const RouteTaxi = ({routeTax}) => {
                             variant='standard'
                             color='neutral'
                             onChange={handleChange}
+                            data-testid="route-first"
                         >
                             <MenuItem value={10}>{routeTax[0]}</MenuItem>
                             <MenuItem value={20}>{routeTax[1]}</MenuItem>
@@ -75,6 +76,7 @@ const RouteTaxi = ({routeTax}) => {
                             onChange={handleChange2}
                             variant='standard'
                             color='neutral'
+                            data-testid="route-second"
                         >
                             <MenuItem value={10}>{routeTax[0]}</MenuItem>
                             <MenuItem value={20}>{routeTax[1]}</MenuItem>
